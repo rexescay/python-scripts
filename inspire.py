@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# inspire.py - Tracks my no-fap progress and allows the inclusion of achievements
+# inspire.py - Tracks my progress and allows the inclusion of achievements
 
 import os, shelve, sys
 
