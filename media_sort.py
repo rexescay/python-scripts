@@ -28,4 +28,9 @@ for dir_names, sub_dirs, filenames in os.walk(root_dir):
 			if suffix_re.search(files).group() not in suffix_list:
 				suffix_list.append(suffix_re.search(files).group())
 
-print(suffix_list)
+for s in suffix_list:
+	if os.path.exists(root_dir+s[1:]):
+		print(s[1:]+' directory exists')
+	else:
+		print('Creating directory %s...'%s[1:])
+		os.makedirs(root_dir+s[1:])
