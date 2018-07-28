@@ -6,8 +6,9 @@
 
 import os, random, re, shutil, sys
 
-if os.path.isdir(sys.argv[1]):
-	root_dir = sys.argv[1]
+if len(sys.argv) == 2:
+	if os.path.isdir(sys.argv[1]):
+		root_dir = sys.argv[1]
 else:
 	print('# python3 image_sort.py <path/to/root/directory>')
 	sys.exit()
