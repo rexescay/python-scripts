@@ -2,7 +2,7 @@
 
 # image_sort.py - Walks directories from root folder and sorts files
 # into apropriate directories
-# python3 image_sort.py <path/to/root/directory>
+# python3 sort_directory.py <path/to/root/directory>
 
 import os, random, re, shutil, sys
 
