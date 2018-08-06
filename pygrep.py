@@ -4,7 +4,7 @@
 # Searches '.txt' files in <directory path> and returns all lines
 # containing <expression>
 
-import os, re, sys, pprint
+import os, re, sys
 
 # Inturpret command line arguments.
 if len(sys.argv) == 3:
@@ -21,15 +21,15 @@ else:
 	sys.exit()
 
 # Find appropriate files in the path provided.
-file_type = re.compile(r'\.txt$')
-line_list = []
 for txt_file in os.listdir(directory_path):
-	if os.path.isfile(txt_file) and file_type.search(txt_file) != None:
-		# Read each file and store matching lines in a list
+	if os.path.isfile(txt_file):
+		# Read contents of the file
 		file_object = open(txt_file)
-		for matched_lines in file_object.readlines():
-			if regex.search(matched_lines) != None:
-				line_list.append(matched_lines)
-
-for lines in line_list:
-	print(lines, end='')
+		file_content = file_object.read()
+		# Print lines that matched regular expression
+		if regex.search(file_content) != None:
+			print('-'*5+txt_file+'-'*5)
+			lines = file_content.split('\n')
+			for matched_lines in lines:
+				if regex.search(matched_lines) != None:
+					print(matched_lines)
