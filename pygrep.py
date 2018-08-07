@@ -12,7 +12,7 @@ if len(sys.argv) == 3:
 		directory_path = str(sys.argv[2])
 	else:
 		directory_path = '.'
-	regex = re.compile(sys.argv[1])
+	regex = re.compile(sys.argv[1], re.IGNORECASE)
 elif len(sys.argv) == 2:
 	directory_path = '.'
 	regex = re.compile(sys.argv[1])
@@ -32,4 +32,4 @@ for txt_file in os.listdir(directory_path):
 			lines = file_content.split('\n')
 			for matched_lines in lines:
 				if regex.search(matched_lines) != None:
-					print(matched_lines)
+					print(matched_lines.strip())
