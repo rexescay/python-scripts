@@ -20,9 +20,14 @@ else:
 	print("# python3 regex_search.py <expression> <directory path>\n# Searches '.txt' files in <directory path> and returns all lines\n# containing <expression>")
 	sys.exit()
 
+# Regular expression which will be used to determine the filetype complies
+check_re= re.compile(r'^text')
 # Find appropriate files in the path provided.
 for txt_file in os.listdir(directory_path):
-	if os.path.isfile(txt_file):
+	# Executes the "file -bi" command on each file and checks the output for check_re
+	check_command = 'file -bi ' + txt_file
+	check_string = os.popen(check_command, 'r')
+	if check_re.search(check_string.read()) != None:
 		# Read contents of the file
 		file_object = open(txt_file)
 		file_content = file_object.read()
