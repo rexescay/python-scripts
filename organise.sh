@@ -6,5 +6,5 @@ for files in * ; do
 	if [ ! -d $extentions ] ; then
 		mkdir $extentions
 	fi
-	mv $files $extentions
+	mv *.$extentions $extentions
 done
